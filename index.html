@@ -1,10 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Font Awesome-->
+    <meta
+      name="description"
+      content="GitHub kullanıcılarını arayıp profil bilgilerini ve açık repolarını sade bir arayüzde inceleyin."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -12,65 +21,58 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!--Custom CSS-->
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>GitHub Profil Gezgini</title>
   </head>
   <body>
-    <form id="form" class="user-form">
-      <input
-        type="text"
-        id="search"
-        placeholder="GitHub Kullanıcısı"
-        autocomplete="off"
-      />
-      <button type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </form>
-    <main id="main">
-      <!--<div class="card">
-        <img
-          class="user-image"
-          src="https://avatars.githubusercontent.com/u/250151248?v=4"
-          alt="User Image"
-        />
-        <div class="user-info">
-          <div class="username">
-            <h2>Kenan Sönmez</h2>
-            <small>@kenansonmez</small>
-          </div>
-        </div>
-
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
-          molestiae, voluptatem non, atque earum reiciendis exercitationem
-          magnam tenetur deserunt iste cupiditate consequuntur, ipsum distinctio
-          ullam id. Nemo voluptatum culpa iusto.
+    <div class="page-shell">
+      <header class="hero panel">
+        <p class="eyebrow">GitHub Profil Gezgini</p>
+        <h1>Bir GitHub kullanıcısını aratıp profiline hızlıca bak.</h1>
+        <p class="hero-text">
+          Temel profil bilgileri, takip sayıları ve açık repolar tek sayfada
+          toplu şekilde görünür.
         </p>
 
-        <ul>
-          <li>
-            <i class="fa-solid fa-user-group"> </i> 311
-            <strong>Followers</strong>
-          </li>
-          <li>2 <strong>Following</strong></li>
-          <li>
-            <i class="fa-solid fa-bookmark"></i> 13 <strong>Repository</strong>
-          </li>
-        </ul>
+        <form id="form" class="user-form" novalidate>
+          <label class="visually-hidden" for="search">
+            GitHub kullanıcı adı
+          </label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="ör. octocat"
+            autocomplete="off"
+            spellcheck="false"
+            inputmode="search"
+            aria-describedby="search-help"
+          />
+          <button type="submit" aria-label="GitHub kullanıcısını ara">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <span>Ara</span>
+          </button>
+        </form>
 
-        <div class="repos" id="repos">
-          <a href="#"> <i class="fa-solid fa-book-bookmark"></i> Repo 1</a>
-          <a href="#"> <i class="fa-solid fa-book-bookmark"></i> Repo 2</a>
-          <a href="#"> <i class="fa-solid fa-book-bookmark"></i> Repo 3</a>
-        </div>
-      </div>-->
-    </main>
+        <p id="search-help" class="form-hint">
+          Örnek kullanıcı adları: torvalds, gaearon, octocat
+        </p>
+      </header>
 
-    <!--Script Axios-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!--Script JS-->
+      <main id="main" class="results" aria-live="polite">
+        <section class="panel state-card empty-state">
+          <div class="state-icon" aria-hidden="true">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <h2>Bir kullanıcı ara</h2>
+          <p>
+            GitHub kullanıcı adını yazıp profilini ve açık repolarını hemen
+            görebilirsin.
+          </p>
+        </section>
+      </main>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>
